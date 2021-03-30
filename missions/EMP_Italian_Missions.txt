@@ -198,14 +198,35 @@ emp_ita_gallia_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
-			west_massif_central_area = {
+			pyrenees_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			pyrenees_area = {
+			btc_pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_guyenne_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			limousin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			saintonge_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -227,8 +248,11 @@ emp_ita_gallia_branch = {
 				area = guyenne_area
 				area = poitou_area
 				area = massif_central_area
-				area = west_massif_central_area
 				area = pyrenees_area
+				area = btc_pyrenees_area
+				area = east_guyenne_area
+				area = limousin_area
+				area = saintonge_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -253,11 +277,23 @@ emp_ita_gallia_branch = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			west_massif_central_area = {
+			pyrenees_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			pyrenees_area = {
+			btc_pyrenees_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_guyenne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			limousin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			saintonge_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -630,15 +666,21 @@ emp_ita_war_branch = {
 		required_missions = { emp_ita_take_the_littoral }
 		
 		provinces_to_highlight = {
-			area = tirol_area
+			OR = {
+				area = tirol_area
+				area = sudtirol_area
+			}
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = emp_ita_redeem_tirolo_tt
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 4
-					area = tirol_area
+					value = 6
+					OR = {
+						area = tirol_area
+						area = sudtirol_area
+					}
 				}
 			}
 		}
@@ -1064,6 +1106,13 @@ emp_ita_unification_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+			aeolia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			karasi_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1085,6 +1134,13 @@ emp_ita_unification_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+			lycia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			hudavendigar_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1093,6 +1149,13 @@ emp_ita_unification_branch = {
 				add_permanent_claim = ROOT
 			}
 			germiyan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			pisidia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1122,12 +1185,19 @@ emp_ita_unification_branch = {
 				area = pamphylia_area
 				area = hudavendigar_area
 				area = germiyan_area
+				area = pisidia_area
 				area = cukurova_area
+				area = lycia_area
+				area = aeolia_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aeolia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1143,11 +1213,19 @@ emp_ita_unification_branch = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			lycia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			hudavendigar_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			germiyan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			pisidia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

@@ -247,6 +247,9 @@ iberia_region = {
 		galicia_area
 		baleares_area
 		#BTADDITIONS
+		cuenca_area
+		south_alentejo_area
+		south_beiras_area
 		extremadura_area
 		new_castile_area
 		btc_murcia_area
@@ -489,6 +492,7 @@ mashriq_region = { #Levant
 		syrian_desert_area			#Repurposed to Sinai
 		#BTADDITIONS
 		tripoli_area
+		trans_jordan_area
 	}
 }
 
@@ -508,6 +512,9 @@ anatolia_region = {
 		karasi_area
 		pamphylia_area
 		caria_area
+		pisidia_area
+		lycia_area
+		aeolia_area
 	}
 }
 

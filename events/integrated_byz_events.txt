@@ -638,6 +638,7 @@ country_event = {
         has_ruler = "Konstantinos XI"
 		has_dlc = "Rights of Man" #Added trigger in case it bugs up and thinks you can get a consort somehow.
         GEO = {
+			ai = yes	#for now
             num_of_cities = 5
             is_subject = no
             is_female = no
@@ -645,6 +646,8 @@ country_event = {
             NOT = { 
                 war_with = TUR
                 truce_with = TUR
+				is_rival = ROOT
+				is_enemy = ROOT
             }
         }
     }

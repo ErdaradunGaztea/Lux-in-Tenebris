@@ -12,7 +12,7 @@ estate_brahmins_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -85,7 +85,7 @@ estate_nobles_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -158,7 +158,7 @@ estate_church_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -231,7 +231,7 @@ estate_maratha_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -304,7 +304,7 @@ estate_burghers_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -377,7 +377,7 @@ estate_vaisyas_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -450,7 +450,7 @@ estate_cossacks_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -523,7 +523,7 @@ estate_nomadic_tribes_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -596,7 +596,7 @@ estate_dhimmi_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -669,7 +669,7 @@ estate_jains_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -742,7 +742,7 @@ estate_rajput_land_rights = {
 	penalties = {
 	}
 	benefits = {
-		governing_capacity = 100
+		governing_capacity = 150
 	}
 	ai_will_do = {
 		factor = 5
@@ -921,6 +921,20 @@ estate_nobles_levies = {
 		modifier = {
 			factor = 0.5
 			max_manpower = 200
+		}
+		modifier = {
+			factor = 200
+			estate_territory = {
+				estate = estate_nobles
+				territory = 65
+			}
+		}
+		modifier = {
+			factor = 20
+			estate_territory = {
+				estate = estate_nobles
+				territory = 60
+			}
 		}
 		modifier = {
 			factor = 2
@@ -1409,7 +1423,7 @@ estate_church_inwards_perfection = {
 	on_granted = {
 	}
 	modifier_by_land_ownership = {
-		development_cost = -0.15
+		development_cost = -0.25
 	}
 	penalties = {
 		stability_cost_to_declare_war = 1
@@ -1419,11 +1433,28 @@ estate_church_inwards_perfection = {
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 7.5
+			factor = 10
 			tag = KOR
-			NOT = { num_of_cities = 30 }
+			NOT = { num_of_cities = 70 }
 			religion = confucianism
 			is_absolutism_active = no
+		}
+		modifier = {
+			factor = 10
+			tag = MNG
+			religion = confucianism
+			is_absolutism_active = no
+			all_neighbor_country = {
+				OR = {
+					is_subject_of = MNG
+					AND = {
+						is_subject = yes
+						overlord = {
+							is_subject_of = MNG
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -1902,7 +1933,11 @@ estate_dhimmi_lighter_dhimmi_taxes = {
 	benefits = {
 	}
 	ai_will_do = {
-		factor = 0
+		factor = 1000
+		modifier = {
+			factor = 0
+			NOT = { tag = TUR }
+		}
 	}
 }
 
@@ -1977,7 +2012,11 @@ estate_dhimmi_manpower = {
 	benefits = {
 	}
 	ai_will_do = {
-		factor = 0
+		factor = 1000
+		modifier = {
+			factor = 0
+			NOT = { tag = TUR }
+		}
 	}
 }
 
@@ -3301,7 +3340,10 @@ estate_burghers_monopoly_of_textiles = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = cloth
+			OR = {
+				trade_goods = cloth
+				trade_goods = silk
+			}
 		}
 	}
 	can_select = {
@@ -3328,7 +3370,10 @@ estate_burghers_monopoly_of_textiles = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = cloth
+				OR = {
+					trade_goods = cloth
+					trade_goods = silk
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_CLOTH_DESC
 		}
@@ -3336,7 +3381,10 @@ estate_burghers_monopoly_of_textiles = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = cloth
+					OR = {
+						trade_goods = cloth
+						trade_goods = silk
+					}
 				}
 				add_province_modifier = {
 					name = estate_burghers_monopoly_of_textiles_mod
@@ -3631,6 +3679,7 @@ estate_burghers_monopoly_of_wool = {
 	}
 	benefits = {
 	}
+    
 	cooldown_years = 10
 	on_cooldown_expires = {
 		country_event = { id = monopoly_privileges.9 }
@@ -3647,7 +3696,10 @@ estate_vaisyas_monopoly_of_textiles = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = cloth
+			OR = {
+				trade_goods = cloth
+				trade_goods = silk
+			}
 		}
 	}
 	can_select = {
@@ -3674,7 +3726,10 @@ estate_vaisyas_monopoly_of_textiles = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = cloth
+				OR = {
+					trade_goods = cloth
+					trade_goods = silk
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_CLOTH_DESC
 		}
@@ -3682,7 +3737,10 @@ estate_vaisyas_monopoly_of_textiles = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = cloth
+					OR = {
+						trade_goods = cloth
+						trade_goods = silk
+					}
 				}
 				add_province_modifier = {
 					name = estate_vaisyas_monopoly_of_textiles_mod
@@ -3979,6 +4037,7 @@ estate_vaisyas_monopoly_of_wool = {
 	}
 	benefits = {
 	}
+    
 	cooldown_years = 10
 	on_cooldown_expires = {
 		country_event = { id = monopoly_privileges.9 }
@@ -3995,7 +4054,10 @@ estate_jains_monopoly_of_textiles = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = cloth
+			OR = {
+				trade_goods = cloth
+				trade_goods = silk
+			}
 		}
 		NOT = { has_estate = estate_vaisyas }
 		NOT = { has_estate = estate_burghers }
@@ -4024,7 +4086,10 @@ estate_jains_monopoly_of_textiles = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = cloth
+				OR = {
+					trade_goods = cloth
+					trade_goods = silk
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_CLOTH_DESC
 		}
@@ -4032,7 +4097,10 @@ estate_jains_monopoly_of_textiles = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = cloth
+					OR = {
+						trade_goods = cloth
+						trade_goods = silk
+					}
 				}
 				add_province_modifier = {
 					name = estate_jains_monopoly_of_textiles_mod
@@ -4264,6 +4332,7 @@ estate_jains_monopoly_of_wool = {
 		any_owned_province = {
 			trade_goods = wool
 		}
+        NOT = { has_estate = estate_vaisyas }
 		NOT = { has_estate = estate_church }
 	}
 	can_select = {
@@ -4351,7 +4420,10 @@ estate_nobles_monopoly_of_metals = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = iron
+			OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
 		}
 	}
 	can_select = {
@@ -4378,7 +4450,10 @@ estate_nobles_monopoly_of_metals = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
+				OR = {
 				trade_goods = iron
+				trade_goods = copper
+			}
 			}
 			custom_tooltip = MONOPOLY_INCOME_IRON_DESC
 		}
@@ -4386,7 +4461,10 @@ estate_nobles_monopoly_of_metals = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = iron
+					OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
 				}
 				add_province_modifier = {
 					name = estate_nobles_monopoly_of_metals_mod
@@ -4524,7 +4602,10 @@ estate_nobles_monopoly_of_gems = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = gems
+			OR = {
+				trade_goods = gems
+				trade_goods = pearls
+			}
 		}
 	}
 	can_select = {
@@ -4551,7 +4632,10 @@ estate_nobles_monopoly_of_gems = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = gems
+				OR = {
+					trade_goods = gems
+					trade_goods = pearls
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_GEMS_DESC
 		}
@@ -4559,7 +4643,10 @@ estate_nobles_monopoly_of_gems = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = gems
+					OR = {
+						trade_goods = gems
+						trade_goods = pearls
+					}
 				}
 				add_province_modifier = {
 					name = estate_nobles_monopoly_of_gems_mod
@@ -4611,7 +4698,10 @@ estate_rajput_monopoly_of_metals = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = iron
+			OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
 		}
 		NOT = { has_estate = estate_nobles }
 	}
@@ -4639,7 +4729,10 @@ estate_rajput_monopoly_of_metals = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = iron
+				OR = {
+                    trade_goods = iron
+                    trade_goods = copper
+                }
 			}
 			custom_tooltip = MONOPOLY_INCOME_IRON_DESC
 		}
@@ -4647,7 +4740,10 @@ estate_rajput_monopoly_of_metals = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = iron
+					OR = {
+                        trade_goods = iron
+                        trade_goods = copper
+                    }
 				}
 				add_province_modifier = {
 					name = estate_rajput_monopoly_of_metals_mod
@@ -4787,7 +4883,10 @@ estate_rajput_monopoly_of_gems = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = gems
+			OR = {
+				trade_goods = gems
+				trade_goods = pearls
+			}
 		}
 		NOT = { has_estate = estate_nobles }
 	}
@@ -4815,7 +4914,10 @@ estate_rajput_monopoly_of_gems = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = gems
+				OR = {
+					trade_goods = gems
+					trade_goods = pearls
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_GEMS_DESC
 		}
@@ -4823,7 +4925,10 @@ estate_rajput_monopoly_of_gems = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = gems
+					OR = {
+						trade_goods = gems
+						trade_goods = pearls
+					}
 				}
 				add_province_modifier = {
 					name = estate_rajput_monopoly_of_gems_mod
@@ -4875,7 +4980,10 @@ estate_maratha_monopoly_of_metals = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = iron
+			OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
 		}
 		NOT = { has_estate = estate_nobles }
 	}
@@ -4903,7 +5011,10 @@ estate_maratha_monopoly_of_metals = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = iron
+				OR = {
+                    trade_goods = iron
+                    trade_goods = copper
+                }
 			}
 			custom_tooltip = MONOPOLY_INCOME_IRON_DESC
 		}
@@ -4911,7 +5022,10 @@ estate_maratha_monopoly_of_metals = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = iron
+					OR = {
+                        trade_goods = iron
+                        trade_goods = copper
+                    }
 				}
 				add_province_modifier = {
 					name = estate_maratha_monopoly_of_metals_mod
@@ -5049,7 +5163,10 @@ estate_maratha_monopoly_of_gems = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = gems
+			OR = {
+				trade_goods = gems
+				trade_goods = pearls
+			}
 		}
 		NOT = { has_estate = estate_nobles }
 	}
@@ -5077,7 +5194,10 @@ estate_maratha_monopoly_of_gems = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = gems
+				OR = {
+					trade_goods = gems
+					trade_goods = pearls
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_GEMS_DESC
 		}
@@ -5085,7 +5205,10 @@ estate_maratha_monopoly_of_gems = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = gems
+					OR = {
+						trade_goods = gems
+						trade_goods = pearls
+					}
 				}
 				add_province_modifier = {
 					name = estate_maratha_monopoly_of_gems_mod
@@ -5224,7 +5347,10 @@ estate_church_monopoly_of_paper = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = paper
+			OR = {
+				trade_goods = paper
+				trade_goods = books
+			}
 		}
 	}
 	can_select = {
@@ -5251,7 +5377,10 @@ estate_church_monopoly_of_paper = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = paper
+				OR = {
+					trade_goods = paper
+					trade_goods = books
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_PAPER_DESC
 		}
@@ -5259,7 +5388,10 @@ estate_church_monopoly_of_paper = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = paper
+					OR = {
+						trade_goods = paper
+						trade_goods = books
+					}
 				}
 				add_province_modifier = {
 					name = estate_church_monopoly_of_paper_mod
@@ -5294,7 +5426,6 @@ estate_church_monopoly_of_paper = {
 	}
 	benefits = {
 	}
-
 	cooldown_years = 10
 	on_cooldown_expires = {
 		country_event = { id = monopoly_privileges.4 }
@@ -5312,7 +5443,10 @@ estate_church_monopoly_of_wine = {
 		has_dlc = "Emperor"
 		NOT = { religion_group = muslim }
 		any_owned_province = {
-			trade_goods = wine
+			OR = {
+				trade_goods = wine
+				trade_goods = beer
+			}
 		}
 	}
 	can_select = {
@@ -5339,7 +5473,10 @@ estate_church_monopoly_of_wine = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = wine
+				OR = {
+					trade_goods = wine
+					trade_goods = beer
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_WINE_DESC
 		}
@@ -5347,7 +5484,10 @@ estate_church_monopoly_of_wine = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = wine
+					OR = {
+						trade_goods = wine
+						trade_goods = beer
+					}
 				}
 				add_province_modifier = {
 					name = estate_church_monopoly_of_wine_mod
@@ -5572,8 +5712,12 @@ estate_brahmins_monopoly_of_paper = {
 	is_valid = {
 		has_dlc = "Emperor"
 		any_owned_province = {
-			trade_goods = paper
+			OR = {
+				trade_goods = paper
+				trade_goods = books
+			}
 		}
+        NOT = { has_estate = estate_church }
 	}
 	can_select = {
 		custom_trigger_tooltip = {
@@ -5599,7 +5743,10 @@ estate_brahmins_monopoly_of_paper = {
 		add_years_of_owned_provinces_production_income = {
 			years = 8
 			trigger = {
-				trade_goods = paper
+				OR = {
+					trade_goods = paper
+					trade_goods = books
+				}
 			}
 			custom_tooltip = MONOPOLY_INCOME_PAPER_DESC
 		}
@@ -5607,7 +5754,10 @@ estate_brahmins_monopoly_of_paper = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = paper
+					OR = {
+						trade_goods = paper
+						trade_goods = books
+					}
 				}
 				add_province_modifier = {
 					name = estate_brahmins_monopoly_of_paper_mod
@@ -5642,7 +5792,6 @@ estate_brahmins_monopoly_of_paper = {
 	}
 	benefits = {
 	}
-
 	cooldown_years = 10
 	on_cooldown_expires = {
 		country_event = { id = monopoly_privileges.4 }
@@ -5651,6 +5800,7 @@ estate_brahmins_monopoly_of_paper = {
 		factor = 0
 	}
 }
+
 
 #### END OF MONOPOLIES ####
 

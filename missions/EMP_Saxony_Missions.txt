@@ -266,6 +266,13 @@ emp_sax_missions_defragment_and_go_east = {
 				}
 				add_permanent_claim = ROOT
 			}
+			muenster_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	
@@ -279,17 +286,19 @@ emp_sax_missions_defragment_and_go_east = {
 				area = weser_area
 				area = westphalia_area
 				area = north_westphalia_area
+				area = muenster_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = root }
 			ROOT = {
 				NOT = {
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-						value = 10
+						value = 12
 						OR = {
 							area = lower_saxony_area
 							area = weser_area
 							area = westphalia_area
 							area = north_westphalia_area
+							area = muenster_area
 						}
 					}
 				}
@@ -297,12 +306,13 @@ emp_sax_missions_defragment_and_go_east = {
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 10
+				value = 12
 				OR = {
 					area = lower_saxony_area
 					area = weser_area
 					area = westphalia_area
 					area = north_westphalia_area
+					area = muenster_area
 				}
 			}
 		}
@@ -675,9 +685,8 @@ emp_sax_missions_religion = {
 		provinces_to_highlight = {
 			OR = {
 				area = wielkopolska_area
-				area = central_poland_area
+				area = kalisz_area
 				area = malopolska_area
-				area = sandomierz_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = root }
 			ROOT = {
@@ -686,9 +695,8 @@ emp_sax_missions_religion = {
 						value = 10
 						OR = {
 							area = wielkopolska_area
-							area = central_poland_area
+							area = kalisz_area
 							area = malopolska_area
-							area = sandomierz_area
 						}
 					}
 				}
@@ -699,9 +707,8 @@ emp_sax_missions_religion = {
 				value = 10
 				OR = {
 					area = wielkopolska_area
-					area = central_poland_area
+					area = kalisz_area
 					area = malopolska_area
-					area = sandomierz_area
 				}
 			}
 		}
@@ -1011,7 +1018,7 @@ emp_sax_missions_culture_2 = {
 					}
 					add_permanent_claim = ROOT
 				}
-				central_poland_area = {
+				kalisz_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
@@ -1019,13 +1026,6 @@ emp_sax_missions_culture_2 = {
 					add_permanent_claim = ROOT
 				}
 				malopolska_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				sandomierz_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
@@ -1127,7 +1127,10 @@ emp_sax_missions_economic = {
 		icon = porcelain_from_meissen
 		required_missions = { emp_sax_manufacturing }
 		provinces_to_highlight = {
-			province_id = 61
+			OR = {
+				province_id = 61
+				province_id = 59
+			}
 			OR = {
 				NOT = { is_strongest_trade_power = root }
 				NOT = { owned_by = root }
@@ -1147,7 +1150,7 @@ emp_sax_missions_economic = {
 				has_production_building_trigger = yes
 				development = 20
 			}
-			61 = {
+			59 = {
 				is_strongest_trade_power = root
 			}
 			share_of_starting_income = 3

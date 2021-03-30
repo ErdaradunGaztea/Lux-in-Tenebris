@@ -46,7 +46,10 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = cloth
+					OR = {
+						trade_goods = cloth
+						trade_goods = silk
+					}
 				}
 				apply_estate_monopoly_modifier = { privilege = estate_burghers_monopoly_of_textiles }
 				apply_estate_monopoly_modifier = { privilege = estate_vaisyas_monopoly_of_textiles }
@@ -187,7 +190,10 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = paper
+					OR = {
+						trade_goods = paper
+						trade_goods = books
+					}
 				}
 				apply_estate_monopoly_modifier = { privilege = estate_church_monopoly_of_paper }
 				apply_estate_monopoly_modifier = { privilege = estate_brahmins_monopoly_of_paper }
@@ -294,6 +300,7 @@ country_event = {
 	}
 }
 
+
 # Extension of Gems Monopoly
 country_event = {
 	id = monopoly_privileges.7
@@ -333,7 +340,10 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = gems
+					OR = {
+						trade_goods = gems
+						trade_goods = pearls
+					}
 				}
 				apply_estate_monopoly_modifier = { privilege = estate_nobles_monopoly_of_gems }
 				apply_estate_monopoly_modifier = { privilege = estate_rajput_monopoly_of_gems }
@@ -458,7 +468,10 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					trade_goods = wine
+					OR = {
+						trade_goods = wine
+						trade_goods = beer
+					}
 				}
 				apply_estate_monopoly_modifier = { privilege = estate_church_monopoly_of_wine }
 			}

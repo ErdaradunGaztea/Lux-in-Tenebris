@@ -1144,7 +1144,7 @@ btc_spain_3 = {
 				province_id = 2979
 				province_id = 3249
 				province_id = 3189
-				province_id = 3056
+				province_id = 4720
 				province_id = 4764
 				province_id = 193
 				province_id = 3092
@@ -1182,7 +1182,7 @@ btc_spain_3 = {
 				2979 = { country_or_non_sovereign_subject_holds = ROOT }
 				3249 = { country_or_non_sovereign_subject_holds = ROOT }
 				3189 = { country_or_non_sovereign_subject_holds = ROOT }
-				3056 = { country_or_non_sovereign_subject_holds = ROOT }
+				4720 = { country_or_non_sovereign_subject_holds = ROOT }
 				4764 = { country_or_non_sovereign_subject_holds = ROOT }
 				193 = { country_or_non_sovereign_subject_holds = ROOT }
 				3092 = { country_or_non_sovereign_subject_holds = ROOT }
@@ -1224,7 +1224,7 @@ btc_spain_3 = {
 							province_id = 2979
 							province_id = 3249
 							province_id = 3189
-							province_id = 3056
+							province_id = 4720
 							province_id = 4764
 							province_id = 193
 							province_id = 3092
@@ -1413,6 +1413,7 @@ gc_spain_3_b = {
 						province_id = 809
 						province_id = 835
 						province_id = 1516
+						province_id = 795
 					}
 					NOT = { is_strongest_trade_power = ROOT }
 				}
@@ -1438,6 +1439,9 @@ gc_spain_3_b = {
 				is_strongest_trade_power = ROOT
 			}
 			1516 = {
+				is_strongest_trade_power = ROOT
+			}
+			795 = {
 				is_strongest_trade_power = ROOT
 			}
 			795 = {
@@ -2354,6 +2358,8 @@ gc_spain_5_a = {
 			OR = {
 				area = beieras_area
 				area = alentejo_area
+				area = south_beiras_area
+				area = south_alentejo_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -2403,7 +2409,21 @@ gc_spain_5_a = {
 					}
 					add_permanent_claim = ROOT
 				}
+				south_alentejo_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
 				beieras_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
+				south_beiras_area = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
@@ -2425,6 +2445,8 @@ gc_spain_5_a = {
 			OR = {
 				area = beieras_area
 				area = alentejo_area
+				area = south_beiras_area
+				area = south_alentejo_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -2443,7 +2465,15 @@ gc_spain_5_a = {
 					type = all
 					country_or_non_sovereign_subject_holds = ROOT
 				}
+				south_alentejo_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
 				beieras_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				south_beiras_area = {
 					type = all
 					country_or_non_sovereign_subject_holds = ROOT
 				}

@@ -159,7 +159,7 @@ emp_pap_slot_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-      corsica_area = {
+			corsica_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -173,7 +173,7 @@ emp_pap_slot_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			east_sicily_area = {
+			western_sicily_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -191,9 +191,9 @@ emp_pap_slot_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
-        area = corsica_area
+				area = corsica_area
 				area = sicily_area
-				area = east_sicily_area
+				area = western_sicily_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -206,8 +206,8 @@ emp_pap_slot_1 = {
 				OR = {
 					area = corsica_sardinia_area
 					area = sicily_area
-          area = corsica_area
-					area = east_sicily_area
+					area = corsica_area
+					area = western_sicily_area
 				}
 			}
 		}
@@ -757,6 +757,7 @@ emp_pap_slot_3 = {
 						capital_scope = {
 							OR = {
 								region = balkan_region
+								region = greece_region_btc
 								region = anatolia_region
 								region = caucasia_region
 							}
@@ -770,6 +771,7 @@ emp_pap_slot_3 = {
 							capital_scope = {
 								OR = {
 									region = balkan_region
+									region = greece_region_btc
 									region = anatolia_region
 									region = caucasia_region
 								}
@@ -780,6 +782,7 @@ emp_pap_slot_3 = {
 							capital_scope = {
 								OR = {
 									region = balkan_region
+									region = greece_region_btc
 									region = anatolia_region
 									region = caucasia_region
 								}
@@ -794,6 +797,7 @@ emp_pap_slot_3 = {
 					value = 7
 					OR = {
 						region = balkan_region
+						region = greece_region_btc
 						region = anatolia_region
 						region = caucasia_region
 					}
@@ -808,6 +812,7 @@ emp_pap_slot_3 = {
 						capital_scope = {
 							OR = {
 								region = balkan_region
+								region = greece_region_btc
 								region = anatolia_region
 								region = caucasia_region
 							}
@@ -824,6 +829,7 @@ emp_pap_slot_3 = {
 						capital_scope = {
 							OR = {
 								region = balkan_region
+								region = greece_region_btc
 								region = anatolia_region
 								region = caucasia_region
 							}
